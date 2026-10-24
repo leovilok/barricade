@@ -6,10 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(52, 51)
 
-[node name="Prop" type="RigidBody2D" unique_id=819070309 groups=["pickable"]]
+[node name="Prop" type="RigidBody2D" unique_id=819070309 groups=["prop"]]
 input_pickable = true
 mass = 5.0
 freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 64
 script = ExtResource("1_l1x3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=908484471]
@@ -20,3 +22,5 @@ shape = SubResource("RectangleShape2D_lquwl")
 scale = Vector2(0.421875, 0.40625003)
 texture = ExtResource("2_bw8cs")
 metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

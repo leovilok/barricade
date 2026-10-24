@@ -3,7 +3,7 @@ extends Node2D
 var held_object = null
 
 func _ready():
-	for node in get_tree().get_nodes_in_group("pickable"):
+	for node in get_tree().get_nodes_in_group("prop"):
 		node.clicked.connect(_on_pickable_clicked)
 
 func _on_pickable_clicked(object):
