@@ -2,6 +2,8 @@ extends Node2D
 
 var held_object = null
 
+var life = 2.5
+
 func _ready():
 	for node in get_tree().get_nodes_in_group("prop"):
 		node.clicked.connect(_on_pickable_clicked)
@@ -16,3 +18,7 @@ func _unhandled_input(event):
 		if held_object and !event.pressed:
 			held_object.drop(Input.get_last_mouse_velocity().clampf(-10000, 10000))
 			held_object = null
+
+func get_hit():
+	life -= 0.1
+	$HUD/lifebar.scale.x = life

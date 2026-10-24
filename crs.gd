@@ -1,13 +1,21 @@
 extends CharacterBody2D
 
-enum {STATE_RUN, STATE_FALL, STATE_PULL, STATE_HOLD}
+enum {STATE_RUN, STATE_FALL, STATE_PULL, STATE_HOLD, STATE_HIT}
 
 const SPEED = 150
 const RESISTANCE = 1000
 
+const BLAST_BASE = 1000.0
+const BLAST_DECAY = 100.0
+
 @export var state = STATE_RUN
 
 var prop = null
+
+var still_hit = false
+var hit_dealt = false
+var victim = null
+var blast = 0
 
 func _ready():
 	$Anim.play("run")
@@ -20,13 +28,18 @@ func _physics_process(delta: float) -> void:
 	match state :
 		STATE_RUN:
 			velocity.x = SPEED
-		STATE_FALL, STATE_PULL:
+		STATE_FALL:
+			velocity.x = -blast
+			blast -= BLAST_DECAY*delta
+		STATE_PULL, STATE_HIT:
 			velocity.x = 0
 		STATE_HOLD:
 			velocity.x = - SPEED/2.0
 			prop.global_transform.origin = position + Vector2(-10, -50)
 	
 	move_and_slide()
+	
+	still_hit = false
 	
 	for i in get_slide_collision_count():
 		var collider = get_slide_collision(i).get_collider()
@@ -38,10 +51,23 @@ func _physics_process(delta: float) -> void:
 			$Anim.speed_scale = 5.0/prop.mass
 			$Anim.play("pull")
 			state = STATE_PULL
+		if collider.is_in_group("manifestant"):
+			still_hit = true
+			victim = collider
+			if state == STATE_RUN:
+				$Anim.play("hit")
+				state = STATE_HIT
+				hit_dealt = false
+			else:
+				if $Anim.frame >= 21 and !hit_dealt:
+					hit_dealt = true
+					victim.get_hit()
+					get_parent().get_hit()
 		if collider.name == "leftbound":
 			queue_free()
 			if prop:
 				prop.queue_free()
+			
 
 
 func get_hit(power):
@@ -56,6 +82,7 @@ func get_hit(power):
 			$Anim.speed_scale = 1.0
 			$Anim.play("fall")
 			state = STATE_FALL
+			blast = BLAST_BASE
 
 
 func _on_anim_animation_looped() -> void:
@@ -68,6 +95,11 @@ func _on_anim_animation_looped() -> void:
 			prop.crs_held = true
 			prop.collision_layer = 4
 			collision_layer = 4
-			collision_mask = 1 # 8 for invicibility while holding
+			collision_mask = 8 # 8 for invicibility while holding
 			$Anim.play("hold")
 			state = STATE_HOLD
+		STATE_HIT:
+			#todo: damage
+			if !still_hit:
+				$Anim.play("run")
+				state = STATE_RUN

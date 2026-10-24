@@ -22,6 +22,11 @@ window/size/viewport_height=1080
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 
+[editor]
+
+movie_writer/movie_file="/tmp/lol2.ogv"
+movie_writer/fps=30
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
