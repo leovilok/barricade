@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b4w5npu242m8d"]
+
+[ext_resource type="Texture2D" uid="uid://bcutdf432hcrt" path="res://ville.png" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://blsfdf464xme7" path="res://main.gd" id="1_lquwl"]
+[ext_resource type="Script" uid="uid://ywxu3vngaxrw" path="res://camera_2d.gd" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://gg7hbfpmeum4" path="res://prop.tscn" id="4_1bvp3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hhtch"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_evok6"]
+normal = Vector2(1, 0)
+distance = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lquwl"]
+normal = Vector2(-1, 0)
+distance = 1.0
+
+[node name="Main" type="Node2D" unique_id=2028188442]
+script = ExtResource("1_lquwl")
+metadata/_edit_lock_ = true
+
+[node name="Ville" type="Sprite2D" parent="." unique_id=735895732]
+position = Vector2(4148, 549)
+texture = ExtResource("1_0xm2m")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1918976221]
+position = Vector2(640, 360)
+scale = Vector2(1.0002, 1.308)
+limit_left = 0
+limit_top = 0
+limit_right = 8297
+limit_bottom = 1080
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+script = ExtResource("2_h2yge")
+metadata/_edit_lock_ = true
+
+[node name="ground" type="StaticBody2D" parent="." unique_id=2049814207]
+visible = false
+position = Vector2(-1, 1000)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground" unique_id=1725110166]
+shape = SubResource("WorldBoundaryShape2D_hhtch")
+metadata/_edit_lock_ = true
+
+[node name="leftbound" type="StaticBody2D" parent="." unique_id=10108086]
+visible = false
+collision_layer = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftbound" unique_id=2023566594]
+shape = SubResource("WorldBoundaryShape2D_evok6")
+
+[node name="rightbound" type="StaticBody2D" parent="." unique_id=1187137508]
+visible = false
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightbound" unique_id=267357297]
+position = Vector2(8300, 0)
+shape = SubResource("WorldBoundaryShape2D_lquwl")
+metadata/_edit_lock_ = true
+
+[node name="Prop" parent="." unique_id=819070309 instance=ExtResource("4_1bvp3")]
+position = Vector2(379, 262)
+
+[node name="Prop2" parent="." unique_id=1713359933 instance=ExtResource("4_1bvp3")]
+position = Vector2(1064, 440)
