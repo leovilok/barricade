@@ -58,15 +58,20 @@ func _physics_process(delta: float) -> void:
 				$Anim.play("hit")
 				state = STATE_HIT
 				hit_dealt = false
-			else:
-				if $Anim.frame >= 21 and !hit_dealt:
-					hit_dealt = true
-					victim.get_hit()
-					get_parent().get_hit()
+			#else:
+				#if $Anim.frame >= 21 and !hit_dealt:
+					#hit_dealt = true
+					#victim.get_hit()
+					#get_parent().get_hit()
 		if collider.name == "leftbound":
 			queue_free()
 			if prop:
 				prop.queue_free()
+		
+		if state == STATE_HIT and $Anim.frame >= 21 and !hit_dealt:
+			hit_dealt = true
+			victim.get_hit()
+			get_parent().get_hit()
 			
 
 
@@ -99,7 +104,8 @@ func _on_anim_animation_looped() -> void:
 			$Anim.play("hold")
 			state = STATE_HOLD
 		STATE_HIT:
-			#todo: damage
 			if !still_hit:
 				$Anim.play("run")
 				state = STATE_RUN
+			else:
+				hit_dealt = false

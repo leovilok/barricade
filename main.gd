@@ -7,6 +7,12 @@ var life = 2.5
 func _ready():
 	for node in get_tree().get_nodes_in_group("prop"):
 		node.clicked.connect(_on_pickable_clicked)
+	
+	var vp = get_viewport()
+	vp.physics_object_picking = true
+	vp.physics_object_picking_first_only = true
+	vp.physics_object_picking_sort = true
+	
 
 func _on_pickable_clicked(object):
 	if !held_object:
@@ -20,5 +26,7 @@ func _unhandled_input(event):
 			held_object = null
 
 func get_hit():
-	life -= 0.1
+	life -= 0.2
 	$HUD/lifebar.scale.x = life
+	if life <= 0:
+		$HUD/GameOver.visible = true

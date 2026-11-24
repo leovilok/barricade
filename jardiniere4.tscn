@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bquixok8p7t85"]
+
+[ext_resource type="PackedScene" uid="uid://gg7hbfpmeum4" path="res://prop.tscn" id="1_qlbj6"]
+[ext_resource type="Texture2D" uid="uid://c0uwqhbrmive0" path="res://images/props/jaddiniere4.png" id="2_u2jb6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6rdx"]
+size = Vector2(67.40741, 16.296295)
+
+[node name="Jardiniere" unique_id=819070309 instance=ExtResource("1_qlbj6")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=908484471]
+position = Vector2(3.000002, -7.999999)
+shape = SubResource("RectangleShape2D_t6rdx")
+
+[node name="Icon" parent="CollisionShape2D" index="0" unique_id=1798268753]
+position = Vector2(1.1111103, -2.592593)
+texture = ExtResource("2_u2jb6")

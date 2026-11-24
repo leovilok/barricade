@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ctnesub4rvsis"]
+
+[ext_resource type="PackedScene" uid="uid://ihys6y57busp" path="res://breakable.tscn" id="1_savpi"]
+[ext_resource type="Texture2D" uid="uid://dc1w0sv7xpw0n" path="res://images/props/grillage_IKEA_broke.png" id="2_axgmk"]
+[ext_resource type="Texture2D" uid="uid://der58mkjequqj" path="res://images/windows/ikea.png" id="3_nitom"]
+[ext_resource type="Texture2D" uid="uid://bld0unegopkob" path="res://images/props/grillage_Ikea.png" id="4_451q1"]
+
+[node name="Breakable" unique_id=125558151 instance=ExtResource("1_savpi")]
+
+[node name="CollisionPolygon2D" parent="." index="0" unique_id=1656308689]
+polygon = PackedVector2Array(350.92593, 224.07407, -371.2963, 237.96295, -372.22223, -255.55556, 362.96295, -261.1111)
+
+[node name="BrokenSprite" parent="." index="1" unique_id=1491647245]
+visible = false
+position = Vector2(1.8518517, -127.77777)
+texture = ExtResource("2_axgmk")
+
+[node name="Sprite" parent="." index="2" unique_id=1701179624]
+position = Vector2(-0.92592585, 1.8518519)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("3_nitom")
+
+[node name="Ikea" type="Sprite2D" parent="Sprite" index="0" unique_id=1384527448]
+position = Vector2(-0.784683, -10.985561)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("4_451q1")

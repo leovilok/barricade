@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cq77h5l5ha1ya"]
+
+[ext_resource type="PackedScene" uid="uid://gg7hbfpmeum4" path="res://prop.tscn" id="1_rkx2f"]
+[ext_resource type="Texture2D" uid="uid://cvxln8p822814" path="res://images/props/lampadaire.png" id="2_4il5i"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rkx2f"]
+a = Vector2(1, -124.5)
+b = Vector2(0.5, 131.5)
+
+[node name="Lampadaire" unique_id=819070309 instance=ExtResource("1_rkx2f")]
+collision_layer = 256
+mass = 50.0
+freeze = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0" unique_id=964988954]
+scale = Vector2(1.1, 1.1)
+polygon = PackedVector2Array(50, -302.5, 7.9000015, -334, -2.7000008, -334, -4, -333.3, -4, -332.2, -46.8, -309, -51, -309, -51, -295.4, -12.099998, -191.2, -16, 57.899994, -16, 60.299988, -43, 314.59998, -43, 323, -28, 331.90002, -28, 334, 3.4000015, 334, 15.599998, 333, 25.400002, 333, 44, 318.40002, 44, 312.59998, 15.300003, 54, 17, -122, 17, -194.8, 50, -296.9)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=908484471]
+shape = SubResource("SegmentShape2D_rkx2f")
+
+[node name="Icon" parent="CollisionShape2D" index="0" unique_id=1798268753]
+texture = ExtResource("2_4il5i")

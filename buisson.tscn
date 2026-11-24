@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://7pxucbc5lig4"]
+
+[ext_resource type="PackedScene" uid="uid://gg7hbfpmeum4" path="res://prop.tscn" id="1_6w0ru"]
+[ext_resource type="Texture2D" uid="uid://bexile8dbfptc" path="res://images/props/buisson_droite.png" id="2_aslwx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vivmo"]
+radius = 24.814814
+height = 91.11111
+
+[node name="Buisson" unique_id=819070309 instance=ExtResource("1_6w0ru")]
+collision_layer = 256
+mass = 3.0
+freeze = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=908484471]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_vivmo")
+
+[node name="Icon" parent="CollisionShape2D" index="0" unique_id=1798268753]
+position = Vector2(-8.518518, 2.592593)
+rotation = -1.5707964
+texture = ExtResource("2_aslwx")

@@ -15,7 +15,7 @@ max_contacts_reported = 64
 script = ExtResource("1_l1x3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=908484471]
-scale = Vector2(2, 2)
+scale = Vector2(2.7, 2.7)
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="Icon" type="Sprite2D" parent="CollisionShape2D" unique_id=1798268753]

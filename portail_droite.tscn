@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bph14y7lbmue6"]
+
+[ext_resource type="PackedScene" uid="uid://gg7hbfpmeum4" path="res://prop.tscn" id="1_dgkya"]
+[ext_resource type="Texture2D" uid="uid://cy81ufiwpbtcr" path="res://images/props/portaildroite.png" id="2_xxtjx"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_nangq"]
+points = PackedVector2Array(-103, 97, -109, -97, 30, -89.5, 60.5, -62.5, 108.5, -49, 113, 99)
+
+[node name="PortailDroite" unique_id=819070309 instance=ExtResource("1_dgkya")]
+collision_layer = 256
+mass = 25.0
+freeze = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=908484471]
+shape = SubResource("ConvexPolygonShape2D_nangq")
+
+[node name="Icon" parent="CollisionShape2D" index="0" unique_id=1798268753]
+texture = ExtResource("2_xxtjx")

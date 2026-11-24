@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cexav75ms8stt"]
+
+[ext_resource type="PackedScene" uid="uid://gg7hbfpmeum4" path="res://prop.tscn" id="1_o8svk"]
+[ext_resource type="Texture2D" uid="uid://bp1hahfxs3dvq" path="res://images/props/interditchien.png" id="2_fm38l"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_e0baj"]
+a = Vector2(0, -29)
+b = Vector2(3, 37)
+
+[node name="Prop" unique_id=819070309 instance=ExtResource("1_o8svk")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0" unique_id=246482595]
+scale = Vector2(1.1390625, 1.0968751)
+polygon = PackedVector2Array(-10.5, -124.9, -10.5, -120.5, -49.5, -47.5, -49.5, -43, -43.5, -36.1, -43.5, -32.6, -6.299999, -31.599998, 4.5, 113.8, 4.5, 123.100006, 21.5, 125, 21.5, 111.3, 10.5, -23.800003, 10.5, -33.300003, 26.800003, -36.5, 42.6, -36.5, 46.6, -42.5, 47.800003, -42.5, 50.1, -46.5, 8.5, -118.7, 8.5, -123.2)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=908484471]
+shape = SubResource("SegmentShape2D_e0baj")
+
+[node name="Icon" parent="CollisionShape2D" index="0" unique_id=1798268753]
+texture = ExtResource("2_fm38l")

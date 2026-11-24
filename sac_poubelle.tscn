@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c6pluxga3d650"]
+
+[ext_resource type="PackedScene" uid="uid://gg7hbfpmeum4" path="res://prop.tscn" id="1_nangq"]
+[ext_resource type="Texture2D" uid="uid://cgh6yk52qdkp7" path="res://images/props/sacpoubelle.png" id="2_y5f1e"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7i8ju"]
+friction = 0.5
+bounce = 0.32
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7i8ju"]
+radius = 13.0
+
+[node name="SacPoubelle" unique_id=819070309 instance=ExtResource("1_nangq")]
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_7i8ju")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=908484471]
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_7i8ju")
+
+[node name="Icon" parent="CollisionShape2D" index="0" unique_id=1798268753]
+position = Vector2(0, -3)
+texture = ExtResource("2_y5f1e")

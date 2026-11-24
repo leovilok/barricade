@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d0g87hgnk44w1"]
+
+[ext_resource type="PackedScene" uid="uid://gg7hbfpmeum4" path="res://prop.tscn" id="1_sx76w"]
+[ext_resource type="Texture2D" uid="uid://b3rirbt1426ab" path="res://images/props/carton.png" id="2_j8s2u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4fbl"]
+size = Vector2(60, 30)
+
+[node name="Carton" unique_id=819070309 instance=ExtResource("1_sx76w")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=908484471]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_d4fbl")
+
+[node name="Icon" parent="CollisionShape2D" index="0" unique_id=1798268753]
+texture = ExtResource("2_j8s2u")

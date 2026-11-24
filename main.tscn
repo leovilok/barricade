@@ -3,9 +3,35 @@
 [ext_resource type="Texture2D" uid="uid://bcutdf432hcrt" path="res://ville.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://blsfdf464xme7" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://ywxu3vngaxrw" path="res://camera_2d.gd" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://7pxucbc5lig4" path="res://buisson.tscn" id="3_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://ihys6y57busp" path="res://breakable.tscn" id="3_getpj"]
+[ext_resource type="Texture2D" uid="uid://jnu28akfl54q" path="res://ville0.png" id="3_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://bycxc8sdbnrqy" path="res://volet_droit.tscn" id="3_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://bob5c7ak6pe0j" path="res://vitrine.tscn" id="4_0odxb"]
 [ext_resource type="PackedScene" uid="uid://gg7hbfpmeum4" path="res://prop.tscn" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://baofbqr8w7avd" path="res://images/windows/grille.png" id="4_d13ii"]
+[ext_resource type="Texture2D" uid="uid://dy6fqsufg3yqu" path="res://ville1.png" id="4_kq58d"]
+[ext_resource type="PackedScene" uid="uid://dimnsd06qpd4m" path="res://volet_gauche.tscn" id="4_w48qg"]
+[ext_resource type="PackedScene" uid="uid://cq77h5l5ha1ya" path="res://lampadaire.tscn" id="5_efxa6"]
 [ext_resource type="PackedScene" uid="uid://ngfrdfd1muqs" path="res://crs.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bph14y7lbmue6" path="res://portail_droite.tscn" id="5_vivmo"]
+[ext_resource type="PackedScene" uid="uid://dau430qr8h5td" path="res://portail_gauche.tscn" id="6_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://bur02pora7v82" path="res://manifestant.tscn" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://fhulfg1hney0" path="res://images/windows/parasoleil.png" id="6_lswn8"]
+[ext_resource type="PackedScene" uid="uid://d0g87hgnk44w1" path="res://carton.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://biyho1cwlrxup" path="res://poubelle.tscn" id="7_kek77"]
+[ext_resource type="PackedScene" uid="uid://dvqfajgj0w74j" path="res://ikea.tscn" id="7_lswn8"]
+[ext_resource type="PackedScene" uid="uid://c6pluxga3d650" path="res://sac_poubelle.tscn" id="8_4c57u"]
+[ext_resource type="PackedScene" uid="uid://cexav75ms8stt" path="res://panneau.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://d0pkvprvsrdbl" path="res://jardiniere.tscn" id="8_82xsv"]
+[ext_resource type="PackedScene" uid="uid://b64p7d5mqi3pl" path="res://jardiniere2.tscn" id="9_getpj"]
+[ext_resource type="PackedScene" uid="uid://c6v047xbir3gt" path="res://jardiniere3.tscn" id="10_ryguw"]
+[ext_resource type="PackedScene" uid="uid://bquixok8p7t85" path="res://jardiniere4.tscn" id="11_d13ii"]
+[ext_resource type="PackedScene" uid="uid://ctnesub4rvsis" path="res://ikeagrille.tscn" id="11_kq58d"]
+[ext_resource type="Texture2D" uid="uid://dc1w0sv7xpw0n" path="res://images/props/grillage_IKEA_broke.png" id="11_seu75"]
+[ext_resource type="Texture2D" uid="uid://cfy48ofkf5kpi" path="res://images/windows/petite_grille.png" id="14_1u8w0"]
+[ext_resource type="PackedScene" uid="uid://bibgrxoqwtygj" path="res://gameover.tscn" id="27_a6jrf"]
+[ext_resource type="PackedScene" uid="uid://djptiha17vqw6" path="res://grosse_poubelle.tscn" id="32_htxhm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hhtch"]
 
@@ -33,24 +59,6 @@ gradient = SubResource("Gradient_272bh")
 script = ExtResource("1_lquwl")
 metadata/_edit_lock_ = true
 
-[node name="Ville" type="Sprite2D" parent="." unique_id=735895732]
-position = Vector2(4148, 540)
-texture = ExtResource("1_0xm2m")
-metadata/_edit_lock_ = true
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1918976221]
-position = Vector2(640, 360)
-limit_left = 0
-limit_top = 0
-limit_right = 8297
-limit_bottom = 1080
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 1.0
-drag_horizontal_enabled = true
-script = ExtResource("2_h2yge")
-metadata/_edit_lock_ = true
-
 [node name="ground" type="StaticBody2D" parent="." unique_id=2049814207]
 position = Vector2(-1, 1000)
 collision_layer = 15
@@ -69,7 +77,6 @@ shape = SubResource("WorldBoundaryShape2D_evok6")
 one_way_collision = true
 
 [node name="rightbound" type="StaticBody2D" parent="." unique_id=1187137508]
-visible = false
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rightbound" unique_id=267357297]
@@ -77,44 +84,342 @@ position = Vector2(8300, 0)
 shape = SubResource("WorldBoundaryShape2D_lquwl")
 metadata/_edit_lock_ = true
 
-[node name="Prop" parent="." unique_id=819070309 instance=ExtResource("4_1bvp3")]
-position = Vector2(1052, 674)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1918976221]
+position = Vector2(960, 540)
+limit_left = 0
+limit_top = 0
+limit_right = 8297
+limit_bottom = 1080
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
+drag_horizontal_enabled = true
+script = ExtResource("2_h2yge")
+metadata/_edit_lock_ = true
 
-[node name="Prop2" parent="." unique_id=1729458093 instance=ExtResource("4_1bvp3")]
-position = Vector2(1541, 783)
+[node name="Ville" type="Sprite2D" parent="." unique_id=735895732]
+visible = false
+position = Vector2(4148, 540)
+texture = ExtResource("1_0xm2m")
 
-[node name="Prop3" parent="." unique_id=2048483929 instance=ExtResource("4_1bvp3")]
-position = Vector2(1966, 905)
+[node name="Ville0" type="Sprite2D" parent="." unique_id=2139063849]
+position = Vector2(2074, 540)
+texture = ExtResource("3_qsp4k")
+metadata/_edit_lock_ = true
 
-[node name="Prop4" parent="." unique_id=595536235 instance=ExtResource("4_1bvp3")]
-position = Vector2(2094, 905)
+[node name="Ville1" type="Sprite2D" parent="." unique_id=433106492]
+position = Vector2(6222, 540)
+texture = ExtResource("4_kq58d")
+metadata/_edit_lock_ = true
 
-[node name="Prop5" parent="." unique_id=1165800319 instance=ExtResource("4_1bvp3")]
-position = Vector2(1966, 777)
+[node name="Breakable" parent="." unique_id=125558151 instance=ExtResource("3_getpj")]
+position = Vector2(263, 204)
 
-[node name="Prop6" parent="." unique_id=1856948367 instance=ExtResource("4_1bvp3")]
-position = Vector2(2094, 777)
+[node name="Breakable2" parent="." unique_id=1198121859 instance=ExtResource("3_getpj")]
+position = Vector2(737, 206)
+metadata/_scene_painted = true
 
-[node name="Prop7" parent="." unique_id=411487538 instance=ExtResource("4_1bvp3")]
-position = Vector2(2860, 898)
+[node name="Breakable3" parent="." unique_id=2092350629 instance=ExtResource("3_getpj")]
+position = Vector2(752, 645)
+metadata/_scene_painted = true
 
-[node name="Prop8" parent="." unique_id=1867572987 instance=ExtResource("4_1bvp3")]
-position = Vector2(2988, 898)
+[node name="Breakable4" parent="." unique_id=487096655 instance=ExtResource("3_getpj")]
+position = Vector2(1394, 197)
+metadata/_scene_painted = true
 
-[node name="Prop9" parent="." unique_id=25153977 instance=ExtResource("4_1bvp3")]
-position = Vector2(2860, 770)
+[node name="Breakable5" parent="." unique_id=875146424 instance=ExtResource("3_getpj")]
+position = Vector2(1801, 196)
+metadata/_scene_painted = true
 
-[node name="Prop10" parent="." unique_id=1920554400 instance=ExtResource("4_1bvp3")]
-position = Vector2(2988, 770)
+[node name="Breakable6" parent="." unique_id=1848013 instance=ExtResource("3_getpj")]
+position = Vector2(1756, 643)
+metadata/_scene_painted = true
+
+[node name="Breakable7" parent="." unique_id=2111571948 instance=ExtResource("3_getpj")]
+position = Vector2(3735.2122, 146.00525)
+metadata/_scene_painted = true
+
+[node name="Breakable8" parent="." unique_id=2091030733 instance=ExtResource("3_getpj")]
+position = Vector2(4473.561, 223.48575)
+metadata/_scene_painted = true
+
+[node name="Breakable9" parent="." unique_id=1349442680 instance=ExtResource("3_getpj")]
+position = Vector2(6068, 161)
+scale = Vector2(1.15, 1.15)
+metadata/_scene_painted = true
+
+[node name="Breakable10" parent="." unique_id=1126989337 instance=ExtResource("3_getpj")]
+position = Vector2(6722, 152)
+scale = Vector2(1.15, 1.15)
+metadata/_scene_painted = true
+
+[node name="Breakable11" parent="." unique_id=606680956 instance=ExtResource("3_getpj")]
+position = Vector2(7206, 157)
+scale = Vector2(1.15, 1.15)
+metadata/_scene_painted = true
+
+[node name="Breakable12" parent="." unique_id=1868644184 instance=ExtResource("3_getpj")]
+position = Vector2(7971.4004, 177.06345)
+scale = Vector2(1.15, 1.15)
+metadata/_scene_painted = true
+
+[node name="Poubelle6" parent="." unique_id=1222178254 instance=ExtResource("32_htxhm")]
+position = Vector2(6050, 738)
+
+[node name="Carton14" parent="." unique_id=819070309 instance=ExtResource("7_272bh")]
+position = Vector2(3757.6, 623)
+collision_layer = 256
+freeze = true
+metadata/_scene_painted = true
+
+[node name="Carton16" parent="." unique_id=1576038329 instance=ExtResource("7_272bh")]
+position = Vector2(3909.4001, 619.6999)
+collision_layer = 256
+freeze = true
+metadata/_scene_painted = true
+
+[node name="Carton15" parent="." unique_id=992804360 instance=ExtResource("7_272bh")]
+position = Vector2(3824.7004, 661.5)
+collision_layer = 256
+freeze = true
+metadata/_scene_painted = true
+
+[node name="Vitrine" parent="." unique_id=1643852343 instance=ExtResource("4_0odxb")]
+position = Vector2(3840, 628)
+scale = Vector2(1.18, 1.18)
+
+[node name="Carton17" parent="." unique_id=818393106 instance=ExtResource("7_272bh")]
+position = Vector2(8202, 664)
+collision_layer = 256
+freeze = true
+metadata/_scene_painted = true
+
+[node name="Carton18" parent="." unique_id=1696696986 instance=ExtResource("7_272bh")]
+position = Vector2(8036, 649)
+collision_layer = 256
+freeze = true
+metadata/_scene_painted = true
+
+[node name="Carton19" parent="." unique_id=1034956676 instance=ExtResource("7_272bh")]
+position = Vector2(8098, 707)
+collision_layer = 256
+freeze = true
+metadata/_scene_painted = true
+
+[node name="Vitrine2" parent="." unique_id=1985809105 instance=ExtResource("4_0odxb")]
+position = Vector2(8123.9995, 664)
+scale = Vector2(1.16, 1.16)
+
+[node name="Grille" type="Sprite2D" parent="." unique_id=1909146351]
+position = Vector2(752, 639.00006)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("4_d13ii")
+
+[node name="Grille2" type="Sprite2D" parent="." unique_id=1614165322]
+position = Vector2(1753, 640)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("4_d13ii")
+
+[node name="Parasoleil" type="Sprite2D" parent="." unique_id=23233905]
+position = Vector2(3756, 406)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("6_lswn8")
+
+[node name="Carton11" parent="." unique_id=847876215 instance=ExtResource("7_272bh")]
+position = Vector2(5265, 786)
+collision_layer = 256
+freeze = true
+metadata/_scene_painted = true
+
+[node name="Carton12" parent="." unique_id=1230055040 instance=ExtResource("7_272bh")]
+position = Vector2(5444, 786)
+collision_layer = 256
+freeze = true
+metadata/_scene_painted = true
+
+[node name="Carton13" parent="." unique_id=244607728 instance=ExtResource("7_272bh")]
+position = Vector2(5352, 667)
+collision_layer = 256
+freeze = true
+metadata/_scene_painted = true
+
+[node name="ikea" parent="." unique_id=420826459 instance=ExtResource("7_lswn8")]
+position = Vector2(5361, 660.99994)
+scale = Vector2(1.18, 1.18)
+
+[node name="GrillageIkeaBroke" type="Sprite2D" parent="." unique_id=2016978171]
+position = Vector2(5359, 515)
+texture = ExtResource("11_seu75")
+
+[node name="Breakable13" parent="." unique_id=1980215303 instance=ExtResource("11_kq58d")]
+position = Vector2(5363, 651)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Buisson2" parent="." unique_id=418689440 instance=ExtResource("3_2cqfq")]
+position = Vector2(3061, 767)
+
+[node name="Buisson" parent="." unique_id=625846935 instance=ExtResource("3_2cqfq")]
+position = Vector2(2271, 761)
+
+[node name="VoletDroit2" parent="." unique_id=1461726620 instance=ExtResource("3_ycdy4")]
+position = Vector2(8111, 179)
+
+[node name="VoletDroit" parent="." unique_id=1610027286 instance=ExtResource("3_ycdy4")]
+position = Vector2(3864, 145.99997)
+
+[node name="VoletGauche" parent="." unique_id=1187217730 instance=ExtResource("4_w48qg")]
+position = Vector2(7829, 175)
+
+[node name="VoletGauche2" parent="." unique_id=513757928 instance=ExtResource("4_w48qg")]
+position = Vector2(3602, 145.00003)
+
+[node name="VoletGauche3" parent="." unique_id=1385785250 instance=ExtResource("4_w48qg")]
+position = Vector2(6008, 161)
+
+[node name="VoletDroit3" parent="." unique_id=2124725286 instance=ExtResource("3_ycdy4")]
+position = Vector2(6113, 162)
+
+[node name="PortailDroite" parent="." unique_id=1787415961 instance=ExtResource("5_vivmo")]
+position = Vector2(2958, 597)
+collision_layer = 512
+
+[node name="PortailGauche" parent="." unique_id=986610500 instance=ExtResource("6_2cqfq")]
+position = Vector2(2362, 593)
+collision_layer = 512
+
+[node name="Jardiniere" parent="." unique_id=1874994411 instance=ExtResource("8_82xsv")]
+position = Vector2(259, 319)
+collision_layer = 256
+freeze = true
+
+[node name="Jardiniere2" parent="." unique_id=519862745 instance=ExtResource("9_getpj")]
+position = Vector2(735, 326)
+collision_layer = 256
+freeze = true
+
+[node name="Jardiniere3" parent="." unique_id=1949254433 instance=ExtResource("10_ryguw")]
+position = Vector2(1390, 315)
+collision_layer = 256
+freeze = true
+
+[node name="Jardiniere4" parent="." unique_id=1129440956 instance=ExtResource("11_d13ii")]
+position = Vector2(6709, 278)
+collision_layer = 256
+freeze = true
+
+[node name="Jardiniere5" parent="." unique_id=865195063 instance=ExtResource("8_82xsv")]
+position = Vector2(7198, 281)
+collision_layer = 256
+freeze = true
+
+[node name="PetiteGrille" type="Sprite2D" parent="." unique_id=373053698]
+position = Vector2(4506, 269)
+scale = Vector2(1.17, 1.17)
+texture = ExtResource("14_1u8w0")
+
+[node name="Prop" parent="." unique_id=148148718 instance=ExtResource("4_1bvp3")]
+position = Vector2(1097, -40)
+collision_layer = 256
+freeze = true
+
+[node name="Lampadaire2" parent="." unique_id=763775142 instance=ExtResource("5_efxa6")]
+position = Vector2(1975, 524)
+metadata/_scene_painted = true
+
+[node name="Lampadaire3" parent="." unique_id=1493175651 instance=ExtResource("5_efxa6")]
+position = Vector2(4132, 532)
+metadata/_scene_painted = true
+
+[node name="Lampadaire4" parent="." unique_id=49877421 instance=ExtResource("5_efxa6")]
+position = Vector2(7376, 547)
+metadata/_scene_painted = true
+
+[node name="Poubelle5" parent="." unique_id=2056551830 instance=ExtResource("7_kek77")]
+position = Vector2(7490, 822)
+metadata/_scene_painted = true
+
+[node name="Carton" parent="." unique_id=650306319 instance=ExtResource("7_272bh")]
+position = Vector2(1048, 855)
+
+[node name="Carton2" parent="." unique_id=1915879204 instance=ExtResource("7_272bh")]
+position = Vector2(1044.2833, 770.1877)
+metadata/_scene_painted = true
+
+[node name="Carton3" parent="." unique_id=459996125 instance=ExtResource("7_272bh")]
+position = Vector2(1716, 968)
+freeze = true
+metadata/_scene_painted = true
+
+[node name="Carton4" parent="." unique_id=275255389 instance=ExtResource("7_272bh")]
+position = Vector2(2979, 970)
+metadata/_scene_painted = true
+
+[node name="Carton5" parent="." unique_id=1255941873 instance=ExtResource("7_272bh")]
+position = Vector2(3656.4834, 834.08325)
+metadata/_scene_painted = true
+
+[node name="Carton6" parent="." unique_id=280124603 instance=ExtResource("7_272bh")]
+position = Vector2(5753, 877)
+collision_layer = 256
+freeze = true
+metadata/_scene_painted = true
+
+[node name="Carton7" parent="." unique_id=479539917 instance=ExtResource("7_272bh")]
+position = Vector2(7288.287, 991.6256)
+metadata/_scene_painted = true
+
+[node name="Carton8" parent="." unique_id=2113642251 instance=ExtResource("7_272bh")]
+position = Vector2(7286.1436, 910.16925)
+metadata/_scene_painted = true
+
+[node name="Carton9" parent="." unique_id=49629861 instance=ExtResource("7_272bh")]
+position = Vector2(7284, 833)
+metadata/_scene_painted = true
+
+[node name="Carton10" parent="." unique_id=2125121194 instance=ExtResource("7_272bh")]
+position = Vector2(3653.8735, 744.0525)
+metadata/_scene_painted = true
+
+[node name="Panneau" parent="." unique_id=1550760473 instance=ExtResource("8_5vw27")]
+position = Vector2(2121, 738)
+collision_layer = 256
+mass = 7.0
+freeze = true
+
+[node name="Poubelle2" parent="." unique_id=1221726155 instance=ExtResource("7_kek77")]
+position = Vector2(3266, 818)
+metadata/_scene_painted = true
+
+[node name="Poubelle3" parent="." unique_id=952706361 instance=ExtResource("7_kek77")]
+position = Vector2(4262, 825)
+rotation = -1.5707964
+metadata/_scene_painted = true
+
+[node name="Poubelle4" parent="." unique_id=856198218 instance=ExtResource("7_kek77")]
+position = Vector2(6315.9053, 820.2807)
+metadata/_scene_painted = true
+
+[node name="Poubelle" parent="." unique_id=1745384362 instance=ExtResource("7_kek77")]
+position = Vector2(520, 815)
+
+[node name="SacPoubelle" parent="." unique_id=2018781662 instance=ExtResource("8_4c57u")]
+position = Vector2(3200, 857)
+collision_layer = 256
+freeze = true
+
+[node name="SacPoubelle2" parent="." unique_id=84690900 instance=ExtResource("8_4c57u")]
+position = Vector2(7561, 868)
+collision_layer = 256
+freeze = true
 
 [node name="manifestant" parent="." unique_id=232353513 instance=ExtResource("6_7mycd")]
 position = Vector2(1339, 784)
 
 [node name="manifestant2" parent="." unique_id=1446314889 instance=ExtResource("6_7mycd")]
-position = Vector2(1981, 521)
+position = Vector2(1718, 725)
 
 [node name="manifestant3" parent="." unique_id=1049170731 instance=ExtResource("6_7mycd")]
-position = Vector2(2255, 794)
+position = Vector2(2205, 884)
 
 [node name="CRS" parent="." unique_id=37984603 instance=ExtResource("5_lquwl")]
 position = Vector2(-98, 839)
@@ -123,13 +428,13 @@ position = Vector2(-98, 839)
 position = Vector2(-542, 823)
 
 [node name="CRS3" parent="." unique_id=196241638 instance=ExtResource("5_lquwl")]
-position = Vector2(-341, 834)
+position = Vector2(-429, 818)
 
 [node name="CRS4" parent="." unique_id=19375210 instance=ExtResource("5_lquwl")]
-position = Vector2(-694, 823)
+position = Vector2(-665, 817)
 
 [node name="CRS5" parent="." unique_id=1928984286 instance=ExtResource("5_lquwl")]
-position = Vector2(-862, 823)
+position = Vector2(-1207, 792)
 
 [node name="CRS6" parent="." unique_id=392916564 instance=ExtResource("5_lquwl")]
 position = Vector2(-1798, 774)
@@ -139,6 +444,218 @@ position = Vector2(-1950, 774)
 
 [node name="CRS8" parent="." unique_id=962572234 instance=ExtResource("5_lquwl")]
 position = Vector2(-2118, 774)
+
+[node name="CRS9" parent="." unique_id=79824264 instance=ExtResource("5_lquwl")]
+position = Vector2(-3112.9875, 773.4153)
+metadata/_scene_painted = true
+
+[node name="CRS10" parent="." unique_id=668417094 instance=ExtResource("5_lquwl")]
+position = Vector2(-2965.4814, 773.4153)
+metadata/_scene_painted = true
+
+[node name="CRS11" parent="." unique_id=138022148 instance=ExtResource("5_lquwl")]
+position = Vector2(-3251.0786, 767.1384)
+metadata/_scene_painted = true
+
+[node name="CRS12" parent="." unique_id=377128896 instance=ExtResource("5_lquwl")]
+position = Vector2(-3408, 764)
+metadata/_scene_painted = true
+
+[node name="CRS13" parent="." unique_id=1071333746 instance=ExtResource("5_lquwl")]
+position = Vector2(-4226.8027, 760.38696)
+metadata/_scene_painted = true
+
+[node name="CRS14" parent="." unique_id=2031900435 instance=ExtResource("5_lquwl")]
+position = Vector2(-4848.2114, 763.5254)
+metadata/_scene_painted = true
+
+[node name="CRS15" parent="." unique_id=1270915485 instance=ExtResource("5_lquwl")]
+position = Vector2(-5642.009, 750.9717)
+metadata/_scene_painted = true
+
+[node name="CRS16" parent="." unique_id=1190080244 instance=ExtResource("5_lquwl")]
+position = Vector2(-5824.0376, 744.6948)
+metadata/_scene_painted = true
+
+[node name="CRS17" parent="." unique_id=216884778 instance=ExtResource("5_lquwl")]
+position = Vector2(-5987.236, 741.5564)
+metadata/_scene_painted = true
+
+[node name="CRS18" parent="." unique_id=2044688447 instance=ExtResource("5_lquwl")]
+position = Vector2(-6147.296, 729.0027)
+metadata/_scene_painted = true
+
+[node name="CRS19" parent="." unique_id=1315863154 instance=ExtResource("5_lquwl")]
+position = Vector2(-7200.752, 704.365)
+metadata/_scene_painted = true
+
+[node name="CRS20" parent="." unique_id=809822412 instance=ExtResource("5_lquwl")]
+position = Vector2(-7395.8496, 677.45483)
+metadata/_scene_painted = true
+
+[node name="CRS21" parent="." unique_id=1405571960 instance=ExtResource("5_lquwl")]
+position = Vector2(-8687.529, 677.45483)
+metadata/_scene_painted = true
+
+[node name="CRS22" parent="." unique_id=386134163 instance=ExtResource("5_lquwl")]
+position = Vector2(-8896.084, 677.45483)
+metadata/_scene_painted = true
+
+[node name="CRS23" parent="." unique_id=1619509802 instance=ExtResource("5_lquwl")]
+position = Vector2(-9145, 664)
+metadata/_scene_painted = true
+
+[node name="CRS24" parent="." unique_id=488630573 instance=ExtResource("5_lquwl")]
+position = Vector2(-8201.387, 676.0508)
+metadata/_scene_painted = true
+
+[node name="CRS25" parent="." unique_id=477338492 instance=ExtResource("5_lquwl")]
+position = Vector2(-8043.79, 676.0508)
+metadata/_scene_painted = true
+
+[node name="CRS26" parent="." unique_id=1481541965 instance=ExtResource("5_lquwl")]
+position = Vector2(-9777.344, 616.9524)
+metadata/_scene_painted = true
+
+[node name="CRS27" parent="." unique_id=576943354 instance=ExtResource("5_lquwl")]
+position = Vector2(-9777.344, 616.9524)
+metadata/_scene_painted = true
+
+[node name="CRS28" parent="." unique_id=1082598326 instance=ExtResource("5_lquwl")]
+position = Vector2(-9954.64, 616.9524)
+metadata/_scene_painted = true
+
+[node name="CRS29" parent="." unique_id=1773514211 instance=ExtResource("5_lquwl")]
+position = Vector2(-10122.085, 616.9524)
+metadata/_scene_painted = true
+
+[node name="CRS30" parent="." unique_id=1682824588 instance=ExtResource("5_lquwl")]
+position = Vector2(-10279.681, 597.2529)
+metadata/_scene_painted = true
+
+[node name="CRS31" parent="." unique_id=113518845 instance=ExtResource("5_lquwl")]
+position = Vector2(-10772.168, 597.2529)
+metadata/_scene_painted = true
+
+[node name="CRS32" parent="." unique_id=656379706 instance=ExtResource("5_lquwl")]
+position = Vector2(-10939.613, 577.55347)
+metadata/_scene_painted = true
+
+[node name="CRS33" parent="." unique_id=971768191 instance=ExtResource("5_lquwl")]
+position = Vector2(-7885.7495, 685.90063)
+metadata/_scene_painted = true
+
+[node name="CRS34" parent="." unique_id=390576668 instance=ExtResource("5_lquwl")]
+position = Vector2(-11057.365, 557.854)
+metadata/_scene_painted = true
+
+[node name="CRS35" parent="." unique_id=292941347 instance=ExtResource("5_lquwl")]
+position = Vector2(-11136.163, 557.854)
+metadata/_scene_painted = true
+
+[node name="CRS36" parent="." unique_id=1034091726 instance=ExtResource("5_lquwl")]
+position = Vector2(-11274.06, 548.00415)
+metadata/_scene_painted = true
+
+[node name="manifestant4" parent="." unique_id=940008103 instance=ExtResource("6_7mycd")]
+position = Vector2(2376, 907)
+
+[node name="manifestant5" parent="." unique_id=955519269 instance=ExtResource("6_7mycd")]
+position = Vector2(2784, 870)
+
+[node name="manifestant6" parent="." unique_id=804223592 instance=ExtResource("6_7mycd")]
+position = Vector2(2970, 754)
+
+[node name="manifestant7" parent="." unique_id=1611481968 instance=ExtResource("6_7mycd")]
+position = Vector2(3421.3276, 817.5958)
+metadata/_scene_painted = true
+
+[node name="manifestant8" parent="." unique_id=1058955253 instance=ExtResource("6_7mycd")]
+position = Vector2(3592.595, 821.7731)
+metadata/_scene_painted = true
+
+[node name="manifestant9" parent="." unique_id=50840252 instance=ExtResource("6_7mycd")]
+position = Vector2(3809.812, 825.9503)
+metadata/_scene_painted = true
+
+[node name="manifestant10" parent="." unique_id=1983341153 instance=ExtResource("6_7mycd")]
+position = Vector2(3964.37, 830.12756)
+metadata/_scene_painted = true
+
+[node name="manifestant11" parent="." unique_id=70048804 instance=ExtResource("6_7mycd")]
+position = Vector2(4411.336, 830.12756)
+metadata/_scene_painted = true
+
+[node name="manifestant12" parent="." unique_id=218321565 instance=ExtResource("6_7mycd")]
+position = Vector2(4515.767, 846.8367)
+metadata/_scene_painted = true
+
+[node name="manifestant13" parent="." unique_id=1174439957 instance=ExtResource("6_7mycd")]
+position = Vector2(4586.7803, 846.8367)
+metadata/_scene_painted = true
+
+[node name="manifestant14" parent="." unique_id=34269749 instance=ExtResource("6_7mycd")]
+position = Vector2(4699.5664, 871.90015)
+metadata/_scene_painted = true
+
+[node name="manifestant15" parent="." unique_id=1771374507 instance=ExtResource("6_7mycd")]
+position = Vector2(5058.8096, 821.7731)
+metadata/_scene_painted = true
+
+[node name="manifestant16" parent="." unique_id=2023846781 instance=ExtResource("6_7mycd")]
+position = Vector2(5376.2803, 817.5958)
+metadata/_scene_painted = true
+
+[node name="manifestant17" parent="." unique_id=596141810 instance=ExtResource("6_7mycd")]
+position = Vector2(5543.3706, 834.3048)
+metadata/_scene_painted = true
+
+[node name="manifestant18" parent="." unique_id=2095397655 instance=ExtResource("6_7mycd")]
+position = Vector2(5881.7275, 825.9503)
+metadata/_scene_painted = true
+
+[node name="manifestant19" parent="." unique_id=1570562839 instance=ExtResource("6_7mycd")]
+position = Vector2(5944.3867, 834.3048)
+metadata/_scene_painted = true
+
+[node name="manifestant20" parent="." unique_id=1815775958 instance=ExtResource("6_7mycd")]
+position = Vector2(6032.1084, 876.0774)
+metadata/_scene_painted = true
+
+[node name="manifestant21" parent="." unique_id=206230864 instance=ExtResource("6_7mycd")]
+position = Vector2(6190.8447, 863.54565)
+metadata/_scene_painted = true
+
+[node name="manifestant22" parent="." unique_id=1466490598 instance=ExtResource("6_7mycd")]
+position = Vector2(6591.8604, 842.6594)
+metadata/_scene_painted = true
+
+[node name="manifestant23" parent="." unique_id=2117780150 instance=ExtResource("6_7mycd")]
+position = Vector2(6926.1484, 842.6594)
+metadata/_scene_painted = true
+
+[node name="manifestant24" parent="." unique_id=14005564 instance=ExtResource("6_7mycd")]
+position = Vector2(7289.5693, 491.77036)
+metadata/_scene_painted = true
+
+[node name="manifestant25" parent="." unique_id=132646173 instance=ExtResource("6_7mycd")]
+position = Vector2(7715.649, 871.90015)
+metadata/_scene_painted = true
+
+[node name="manifestant26" parent="." unique_id=747390998 instance=ExtResource("6_7mycd")]
+position = Vector2(7928, 881)
+metadata/_scene_painted = true
+
+[node name="manifestant27" parent="." unique_id=575145095 instance=ExtResource("6_7mycd")]
+position = Vector2(8061, 903)
+metadata/_scene_painted = true
+
+[node name="manifestant28" parent="." unique_id=509249283 instance=ExtResource("6_7mycd")]
+position = Vector2(8202, 919)
+metadata/_scene_painted = true
+
+[node name="Lampadaire" parent="." unique_id=897673691 instance=ExtResource("5_efxa6")]
+position = Vector2(5, 972)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=445176756]
 
@@ -153,11 +670,5 @@ scale = Vector2(2.5, 50)
 texture = SubResource("GradientTexture1D_5vw27")
 offset = Vector2(-128, -0.020000458)
 
-[node name="manifestant4" parent="." unique_id=940008103 instance=ExtResource("6_7mycd")]
-position = Vector2(2329, 546)
-
-[node name="manifestant5" parent="." unique_id=955519269 instance=ExtResource("6_7mycd")]
-position = Vector2(2971, 283)
-
-[node name="manifestant6" parent="." unique_id=804223592 instance=ExtResource("6_7mycd")]
-position = Vector2(3245, 556)
+[node name="GameOver" parent="HUD" unique_id=452006696 instance=ExtResource("27_a6jrf")]
+visible = false

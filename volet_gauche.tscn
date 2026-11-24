@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dimnsd06qpd4m"]
+
+[ext_resource type="PackedScene" uid="uid://gg7hbfpmeum4" path="res://prop.tscn" id="1_bes3b"]
+[ext_resource type="Texture2D" uid="uid://de1pslaglniuy" path="res://images/props/voletgauche.png" id="2_bes3b"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_nangq"]
+points = PackedVector2Array(-15, 36.5, 17.5, 35, 17.5, -35.5, -17, -36.5)
+
+[node name="VoletGauche" unique_id=819070309 instance=ExtResource("1_bes3b")]
+collision_layer = 256
+mass = 6.0
+freeze = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=908484471]
+scale = Vector2(3, 3)
+shape = SubResource("ConvexPolygonShape2D_nangq")
+
+[node name="Icon" parent="CollisionShape2D" index="0" unique_id=1798268753]
+texture = ExtResource("2_bes3b")

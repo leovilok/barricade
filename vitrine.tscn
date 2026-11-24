@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bob5c7ak6pe0j"]
+
+[ext_resource type="PackedScene" uid="uid://ihys6y57busp" path="res://breakable.tscn" id="1_4bric"]
+[ext_resource type="Texture2D" uid="uid://b167lr8hop2o0" path="res://images/windows/vitrine_fissure.png" id="2_wf6o1"]
+[ext_resource type="Texture2D" uid="uid://bqd8yx50caujb" path="res://images/windows/vitrine.png" id="3_3pf0a"]
+
+[node name="Vitrine" unique_id=125558151 instance=ExtResource("1_4bric")]
+max_hp = 10
+
+[node name="CollisionPolygon2D" parent="." index="0" unique_id=1656308689]
+polygon = PackedVector2Array(214.8148, 111.11111, -217.59259, 107.4074, -215.74074, -110.18518, 193.51851, -113.888885)
+
+[node name="BrokenSprite" parent="." index="1" unique_id=1491647245]
+texture = ExtResource("2_wf6o1")
+
+[node name="Sprite" parent="." index="2" unique_id=1701179624]
+texture = ExtResource("3_3pf0a")

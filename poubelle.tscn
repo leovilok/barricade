@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://biyho1cwlrxup"]
+
+[ext_resource type="PackedScene" uid="uid://gg7hbfpmeum4" path="res://prop.tscn" id="1_7i8ju"]
+[ext_resource type="Texture2D" uid="uid://cboe028vd1hak" path="res://images/props/poubelle.png" id="2_e0baj"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_kek77"]
+points = PackedVector2Array(18.5, 32, 22, -28.5, -20, -28, -17, 30)
+
+[node name="Poubelle" unique_id=819070309 instance=ExtResource("1_7i8ju")]
+collision_layer = 256
+mass = 8.0
+freeze = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=908484471]
+shape = SubResource("ConvexPolygonShape2D_kek77")
+
+[node name="Icon" parent="CollisionShape2D" index="0" unique_id=1798268753]
+texture = ExtResource("2_e0baj")
